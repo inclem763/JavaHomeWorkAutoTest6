@@ -24,9 +24,9 @@ public class MoneyTransferTest {
 
     @Test
     void shouldTransferFromFirstToSecond() {
-        var LoginPage = new LoginPage();
+        var loginPage = new LoginPage();
         var authInfo = getAuthInfo();
-        var verificationPage = LoginPage.validLogin(authInfo);
+        var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = getVerificationCodeFor(authInfo);
         var dashboardPage = verificationPage.validVerify(verificationCode);
         var firstCardBalance = dashboardPage.getCardBalance(getFirstCardNumber().getCardNumber());
@@ -43,9 +43,9 @@ public class MoneyTransferTest {
 
     @Test
     void shouldGetErrorMessageIfAmountMoreBalance() {
-        var LoginPage = new LoginPage();
+        var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
-        var verificationPage = LoginPage.validLogin(authInfo);
+        var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
         var dashboardPage = verificationPage.validVerify(verificationCode);
         var secondCardBalance = dashboardPage.getCardBalance(getSecondCardNumber().getCardNumber());
